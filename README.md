@@ -24,6 +24,7 @@ docker run \
   [COMMAND_FLAGS]
 ```
 Where :
+
 * [TAG]: Is the docker image tag you want to use
 * [COMMAND_FLAGS]: Are the arguments you want to pass to java (ex: -jar myapp.jar)
 * [KEY]=[VALUE]: Are some env variable to configure the pinpoint agent, the possibilities are listed below.
