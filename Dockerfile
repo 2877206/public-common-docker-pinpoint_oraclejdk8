@@ -205,6 +205,10 @@ ADD ./resources /resources
 
 RUN /resources/build && rm -rf resources
 
+USER java
+
+ENTRYPOINT ["/entrypoint.sh"]
+
 LABEL "maintainer"="cloudsquad@fxinnovation.com" \
       "org.label-schema.name"="pinpoint-openjdk8" \
       "org.label-schema.base-image.name"="docker.io/library/openjdk" \
