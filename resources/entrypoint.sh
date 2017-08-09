@@ -8,4 +8,5 @@ confd -onetime -backend env
 java \
   -javaagent:/opt/pinpoint/pinpoint-agent/pinpoint-bootstrap-${PINPOINTAGENT_VERSION}.jar \
   -Dpinpoint.agentId=${HOSTNAME} \
+  -Dpinpoint.applicationName=${APPLICATION}-${ENV} \
   $@
