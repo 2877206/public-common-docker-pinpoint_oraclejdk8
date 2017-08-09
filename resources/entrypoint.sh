@@ -6,5 +6,5 @@ confd -onetime -backend env
 
 # Launching java
 java \
-  -javaagent:/opt/pinpoint/pinpoint-agent/pinpoint-bootstrap-${PINPOINT_AGENT_VERSION}.jar \
+  -javaagent:/opt/pinpoint/pinpoint-agent/pinpoint-bootstrap-${PINPOINTAGENT_VERSION}.jar \
   $@
