@@ -1,7 +1,7 @@
 FROM hub.lyw.com/lib/centos7-oracle_java:8
 
 ENV PINPOINTAGENT_VERSION=1.6.2 \
-    CONFD_VERSION=0.11.0 \
+    CONFD_VERSION=0.14.0 \
     APPLICATION=application_name \
     ENV=env_name \
     PINPOINT_AGENT_PATH=/opt/pinpoint \
