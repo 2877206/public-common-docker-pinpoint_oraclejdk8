@@ -205,7 +205,8 @@ ARG VERSION
 
 ADD ./resources /resources
 
-RUN /resources/build && rm -rf resources
+RUN /resources/build
+RUN rm -rf resources
 
 USER java
 
