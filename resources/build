@@ -13,7 +13,8 @@ yum install -y curl net-tools
 
 # Downloading confd
 curl -L --retry 5 -o /usr/local/bin/confd \
-  https://github.com/kelseyhightower/confd/releases/download/v${CONFD_VERSION}/confd-${CONFD_VERSION}-linux-amd64
+  http://localhost/confd-${CONFD_VERSION}-linux-amd64
+#  https://github.com/kelseyhightower/confd/releases/download/v${CONFD_VERSION}/confd-${CONFD_VERSION}-linux-amd64
 chmod +x /usr/local/bin/confd
 
 # Creating confd config directory
@@ -29,7 +30,8 @@ chown -R java:java /etc/confd
 
 # Downloading pinpoint agent
 curl -L -o /resources/pinpoint.tar.gz \
-  https://github.com/naver/pinpoint/releases/download/${PINPOINTAGENT_VERSION}/pinpoint-agent-${PINPOINTAGENT_VERSION}.tar.gz
+   http://localhost/pinpoint-agent-${PINPOINTAGENT_VERSION}.tar.gz
+#  https://github.com/naver/pinpoint/releases/download/${PINPOINTAGENT_VERSION}/pinpoint-agent-${PINPOINTAGENT_VERSION}.tar.gz
 
 # Creating some dir
 mkdir -p /opt/pinpoint/pinpoint-agent
