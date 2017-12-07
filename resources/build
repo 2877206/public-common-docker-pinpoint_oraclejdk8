@@ -3,13 +3,13 @@
 set -e -x
 
 # Add group
-groupadd -S java
+groupadd -r java
 
 # Add user
-adduser -D -G java -S java
+adduser -g java -r java
 
 # Adding curl
-apk add --no-cache curl
+yum install -y curl
 
 # Downloading confd
 curl -L --retry 5 -o /usr/local/bin/confd \
