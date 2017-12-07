@@ -9,7 +9,7 @@ groupadd -r java
 adduser -g java -r java
 
 # Adding curl
-yum install -y curl net-utils
+yum install -y curl net-tools
 
 # Downloading confd
 curl -L --retry 5 -o /usr/local/bin/confd \
