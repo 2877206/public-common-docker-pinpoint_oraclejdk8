@@ -1,4 +1,4 @@
-FROM openjdk:8u131-jdk-alpine
+FROM hub.lyw.com/lib/centos7-oracle_java:8
 
 ENV PINPOINTAGENT_VERSION=1.6.2 \
     CONFD_VERSION=0.11.0 \
@@ -48,7 +48,7 @@ ENV PINPOINTAGENT_VERSION=1.6.2 \
     PINPOINT_PROFILER_PLUGIN_DISABLE="" \
     PINPOINT_PROFILER_INCLUDE="" \
     PINPOINT_PROFILER_ENTRYPOINT="" \
-    PINPOINT_PROFILER_TOMCAT_ENABLE=false \
+    PINPOINT_PROFILER_TOMCAT_ENABLE=true \
     PINPOINT_PROFILER_TOMCAT_BOOTSTRAP_MAIN=org.apache.catalina.startup.bootstrap \
     PINPOINT_PROFILER_TOMCAT_CONDITIONAL_TRANSFORM=true \
     PINPOINT_PROFILER_TOMCAT_HIDEPINPOINTHEADER=true \
@@ -59,7 +59,7 @@ ENV PINPOINTAGENT_VERSION=1.6.2 \
     PINPOINT_PROFILER_JETTY_ENABLE=false \
     PINPOINT_PROFILER_JETTY_BOOTSTRAP_MAIN=org.eclipse.jetty.start.main \
     PINPOINT_PROFILER_JETTY_EXCLUDEURL="" \
-    PINPOINT_PROFILER_DUBBO_ENABLE=false \
+    PINPOINT_PROFILER_DUBBO_ENABLE=true \
     PINPOINT_PROFILER_DUBBO_BOOTSTRAP_MAIN=com.alibaba.dubbo.container.main \
     PINPOINT_PROFILER_JBOSS_ENABLE=false \
     PINPOINT_PROFILER_JBOSS_BOOTSTRAP_MAIN=org.jboss.modules.main \
@@ -85,13 +85,13 @@ ENV PINPOINTAGENT_VERSION=1.6.2 \
     PINPOINT_PROFILER_VERTX_HTTP_CLIENT_COOKIE_DUMPTYPE=ALWAYS \
     PINPOINT_PROFILER_VERTX_HTTP_CLIENT_COOKIE_SAMPLING_RATE=1 \
     PINPOINT_PROFILER_VERTX_HTTP_CLIENT_ENTITY_STATUSCODE=true \
-    PINPOINT_PROFILER_SPRINGBOOT_ENABLE=false \
+    PINPOINT_PROFILER_SPRINGBOOT_ENABLE=true \
     PINPOINT_PROFILER_SPRINGBOOT_BOOTSTRAP_MAIN="org.springframework.boot.loader.JarLauncher, org.springframework.boot.loader.WarLauncher, org.springframework.boot.loader.PropertiesLauncher" \
-    PINPOINT_PROFILER_JDBC=false \
+    PINPOINT_PROFILER_JDBC=true \
     PINPOINT_PROFILER_JDBC_SQLCACHESIZE=1024 \
     PINPOINT_PROFILER_JDBC_TRACESQLBINDVALUE=true \
     PINPOINT_PROFILER_JDBC_MAXSQLBINDVALUESIZE=1024 \
-    PINPOINT_PROFILER_JDBC_MYSQL=false \
+    PINPOINT_PROFILER_JDBC_MYSQL=true \
     PINPOINT_PROFILER_JDBC_MYSQL_SETAUTOCOMMIT=true \
     PINPOINT_PROFILER_JDBC_MYSQL_COMMIT=true \
     PINPOINT_PROFILER_JDBC_MYSQL_ROLLBACK=true \
@@ -106,7 +106,7 @@ ENV PINPOINTAGENT_VERSION=1.6.2 \
     PINPOINT_PROFILER_JDBC_JTDS_COMMIT=true \
     PINPOINT_PROFILER_JDBC_JTDS_ROLLBACK=true \
     PINPOINT_PROFILER_JDBC_JTDS_TRACESQLBINDVALUE="" \
-    PINPOINT_PROFILER_JDBC_ORACLE=false \
+    PINPOINT_PROFILER_JDBC_ORACLE=true \
     PINPOINT_PROFILER_JDBC_ORACLE_SETAUTOCOMMIT=true \
     PINPOINT_PROFILER_JDBC_ORACLE_COMMIT=ture \
     PINPOINT_PROFILER_JDBC_ORACLE_ROLLBACK=true \
@@ -116,9 +116,9 @@ ENV PINPOINTAGENT_VERSION=1.6.2 \
     PINPOINT_PROFILER_JDBC_CUBRID_COMMIT=true \
     PINPOINT_PROFILER_JDBC_CUBRID_ROLLBACK=true \
     PINPOINT_PROFILER_JDBC_CUBRID_TRACESQLBINDVALUE=true \
-    PINPOINT_PROFILER_JDBC_DBCP=false \
+    PINPOINT_PROFILER_JDBC_DBCP=true \
     PINPOINT_PROFILER_JDBC_DBCP_CONNECTIONCLOSE=true \
-    PINPOINT_PROFILER_JDBC_DBCP2=false \
+    PINPOINT_PROFILER_JDBC_DBCP2=true \
     PINPOINT_PROFILER_JDBC_DBCP2_CONNECTIONCLOSE=true \
     PINPOINT_PROFILER_JDBC_HIKARICP=false \
     PINPOINT_PROFILER_JDBC_HIKARICP_CONNECTIONCLOSE=true \
@@ -211,14 +211,10 @@ USER java
 
 ENTRYPOINT ["/entrypoint.sh"]
 
-LABEL "maintainer"="cloudsquad@fxinnovation.com" \
-      "org.label-schema.name"="pinpoint-openjdk8" \
-      "org.label-schema.base-image.name"="docker.io/library/openjdk" \
-      "org.label-schema.base-image.version"="8u131-jdk-alpine" \
-      "org.label-schema.description"="pinpoint-agent with openjdk8 in a container" \
+LABEL "maintainer"="" \
+      "org.label-schema.name"="pinpoint1.6.2-oraclejdk8" \
+      "org.label-schema.description"="pinpoint-agent with oraclejdk8 in a container" \
       "org.label-schema.url"="https://github.com/naver/pinpoint" \
-      "org.label-schema.vcs-url"="https://bitbucket.org/fxadmin/public-common-docker-pinpoint_openjdk8" \
-      "org.label-schema.vendor"="FXinnovation" \
       "org.label-schema.schema-version"="1.0.0-rc.1" \
       "org.label-schema.applications.java.version"=$JAVA_VERSION \
       "org.label-schema.applications.confd.version"=$CONFD_VERSION \
@@ -226,4 +222,3 @@ LABEL "maintainer"="cloudsquad@fxinnovation.com" \
       "org.label-schema.vcs-ref"=$VCS_REF \
       "org.label-schema.version"=$VERSION \
       "org.label-schema.build-date"=$BUILD_DATE \
-      "org.label-schema.usage"="https://bitbucket.org/fxadmin/public-common-docker-pinpoint_web"
