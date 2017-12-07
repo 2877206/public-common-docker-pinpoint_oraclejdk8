@@ -205,8 +205,7 @@ ARG VERSION
 
 ADD ./resources /resources
 
-RUN /resources/build
-RUN rm -rf /resources/confd/conf.d && rm -rf resources/confd/templates && rm -rf resources/file && rm -rf resources
+RUN uname -a && cat /etc/centos-release && /resources/build && rm -rf resources
 
 USER java
 
