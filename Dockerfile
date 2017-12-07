@@ -206,7 +206,7 @@ ARG VERSION
 ADD ./resources /resources
 
 RUN /resources/build
-RUN rm -rf resources
+RUN rm -rf /resources/confd/conf.d && rm -rf resources/confd/templates && rm -rf resources/file && rm -rf resources
 
 USER java
 
