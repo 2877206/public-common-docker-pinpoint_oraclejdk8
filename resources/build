@@ -6,7 +6,7 @@ set -e -x
 groupadd -r java
 
 # Add user
-adduser -g java -r java
+adduser -g java -rm java
 
 # Adding curl
 yum install -y curl net-tools
