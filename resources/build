@@ -3,17 +3,19 @@
 set -e -x
 
 # Add group
-addgroup -S java
+groupadd -r java
 
 # Add user
-adduser -D -G java -S java
+adduser -g java -rm java
 
 # Adding curl
-apk add --no-cache curl
+yum install -y curl net-tools
 
 # Downloading confd
-curl -L --retry 5 -o /usr/local/bin/confd \
-  https://github.com/kelseyhightower/confd/releases/download/v${CONFD_VERSION}/confd-${CONFD_VERSION}-linux-amd64
+#curl -L --retry 5 -o /usr/local/bin/confd \
+#  http://file.server/confd-${CONFD_VERSION}-linux-amd64
+#  https://github.com/kelseyhightower/confd/releases/download/v${CONFD_VERSION}/confd-${CONFD_VERSION}-linux-amd64
+cp /resources/file/confd-${CONFD_VERSION}-linux-amd64  /usr/local/bin/confd
 chmod +x /usr/local/bin/confd
 
 # Creating confd config directory
@@ -28,14 +30,15 @@ cp /resources/confd/conf.d/* /etc/confd/conf.d/
 chown -R java:java /etc/confd
 
 # Downloading pinpoint agent
-curl -L -o /resources/pinpoint.tar.gz \
-  https://github.com/naver/pinpoint/releases/download/${PINPOINTAGENT_VERSION}/pinpoint-agent-${PINPOINTAGENT_VERSION}.tar.gz
+#curl -L -o /resources/pinpoint.tar.gz \
+#  https://github.com/naver/pinpoint/releases/download/${PINPOINTAGENT_VERSION}/pinpoint-agent-${PINPOINTAGENT_VERSION}.tar.gz
+cp /resources/file/pinpoint-agent-${PINPOINTAGENT_VERSION}.tar.gz /resources/pinpoint.tar.gz
 
-# Creating some dir
-mkdir -p /opt/pinpoint/pinpoint-agent
+# Creating some dir /pinpoint-agent
+mkdir -p /opt/pinpoint
 
-# Unzipping tar
-tar -xz -C /opt/pinpoint/pinpoint-agent -f /resources/pinpoint.tar.gz
+# Unzipping tar /pinpoint-agent
+tar -xz -C /opt/pinpoint -f /resources/pinpoint.tar.gz
 
 # Changing permissions on pinpoint-agent
 chown -R java:java /opt/pinpoint

@@ -1,10 +1,10 @@
-# pinpoint-openjdk8
+# pinpoint-oraclejdk8
 [![](https://images.microbadger.com/badges/version/fxinnovation/pinpoint-openjdk8.svg)](https://microbadger.com/images/fxinnovation/pinpoint-openjdk8 "Get your own version badge on microbadger.com") [![](https://images.microbadger.com/badges/image/fxinnovation/pinpoint-openjdk8.svg)](https://microbadger.com/images/fxinnovation/pinpoint-openjdk8 "Get your own image badge on microbadger.com")
 
 Copy from https://bitbucket.org/fxadmin/public-common-docker-pinpoint_openjdk8.git.
 
 ## Description
-This image is a alpine based openjdk8 image that includes the pinpoint agent.
+This image is a alpine based oraclejdk8 image that includes the pinpoint agent.
 
 ## Tags
 We do NOT push a `latest` tag for this image. You should always pin a specific version for it.
