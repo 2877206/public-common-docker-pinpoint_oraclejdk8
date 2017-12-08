@@ -210,6 +210,7 @@ RUN uname -a && cat /etc/centos-release && /resources/build && rm -rf resources
 USER java
 
 ONBUILD ENTRYPOINT ["/entrypoint.sh"]
+ONBUILD CMD ["-jar","/app.jar"]
 
 LABEL "maintainer"="" \
       "org.label-schema.name"="pinpoint1.6.2-oraclejdk8" \
