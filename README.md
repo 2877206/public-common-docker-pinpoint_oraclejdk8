@@ -4,7 +4,7 @@
 Copy from https://bitbucket.org/fxadmin/public-common-docker-pinpoint_openjdk8.git.
 
 ## Description
-This image is a alpine based openjdk8 image that includes the pinpoint agent.
+This image is a alpine based oraclejdk8 image that includes the pinpoint agent.
 
 ## Tags
 We do NOT push a `latest` tag for this image. You should always pin a specific version for it.
