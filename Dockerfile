@@ -1,4 +1,4 @@
-FROM hub.lyw.com/lib/centos7-oracle_java:8
+FROM harbor.fake.ett/library/ettcentos7java8:latest
 
 ENV PINPOINTAGENT_VERSION=1.6.2 \
     CONFD_VERSION=0.14.0 \
